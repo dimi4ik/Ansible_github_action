@@ -3,12 +3,12 @@
 #
 #----------------------------------
 
-name: GitHubmaster-basics
+name: GitHub-Master-basics
 
 on:
  push:
    branches: 
-     - master
+     - main
    
 jobs:
   my_testing:
