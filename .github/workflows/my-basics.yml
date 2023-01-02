@@ -1,0 +1,34 @@
+#----------------------------------
+# Dima Testen v001
+#
+#----------------------------------
+
+name: GitHubmaster-basics
+
+on:
+ push:
+   branches: 
+     - master
+   
+jobs:
+  my_testing:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: nur ein Test
+        run:  echo "Hello Wordld from Testing Job"
+  
+  my_deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: nur ein Test
+        run:  echo "Hello Wordld from deploy Job"
+  
+
+
+
+  
+
+
+
