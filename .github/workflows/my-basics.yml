@@ -4,6 +4,10 @@
 #----------------------------------
 
 name: GitHub-Master-basics
+env:
+  Application_Name  :   "Bier_App"
+  Package_Name      :   "Bier_App_Version-${{ github.sha }}"
+  
 
 on:
  push:
@@ -17,6 +21,12 @@ jobs:
     steps:
       - name: nur ein Test
         run:  echo "Hello Wordld from Testing Job"
+        
+      - name: nur ein Test
+        run:  |
+              echo "Meesages1"
+              echo "Applikation name: ${{ env.Application_Name }}"
+              
   
   my_deploy:
     runs-on: ubuntu-latest
@@ -26,7 +36,8 @@ jobs:
       - name: nur ein Test
         run:  echo "Hello Wordld from deploy Job"
   
-
+      - name: Print Deploment Package
+        run:  echo "Deploment Package name und Version ${{ env.Package_Name  }}"
 
 
   
