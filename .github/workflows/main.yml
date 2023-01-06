@@ -1,4 +1,8 @@
-name: apply__core_Actions
+name: apply__Test_Actions@V1
+
+env:
+  Application_Name  :   "Bier_App"
+  Package_Name      :   "Bier_App_Version-${{ github.sha }}"
 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -32,12 +36,16 @@ jobs:
           terraform --version
           az --version
 
-      - name: apply__core
-        id: apply__core
-        run: |
-          echo -n ${{ secrets.envfile }} > .env && . ./.env
-          export vms_already_alive=${{ github.event.inputs.skip-wait }}
-          ./apply__core.sh
+      - name: Print Deploment Package
+        run:  echo "Deploment Package name und Version ${{ env.Package_Name  }}"
+
+
+      #- name: apply__core
+      #  id: apply__core
+      #  run: |
+      #    echo -n ${{ secrets.envfile }} > .env && . ./.env
+      #    export vms_already_alive=${{ github.event.inputs.skip-wait }}
+      #    ./apply__core.sh
 
       - name: cleanup_ssh
         if: always()
