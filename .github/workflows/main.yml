@@ -46,6 +46,27 @@ jobs:
         run:  |
               echo "Deploment Package name und Version ${{ env.Package_Name  }}"
               echo "Applikation name: ${{ env.Application_Name }}"
+
+
+      - name: write inventory to file
+        env:
+            INVENTORY: ${{ secrets.INVENTORY }}
+        run: 'echo "$INVENTORY" > inventory'
+
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          name: id_rsa # optional
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          # config: ${{ secrets.CONFIG }} # ssh_config; optional
+          if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
+
+      - name: run playbook
+        run: |
+          ansible-playbook -i inventory ansible/hello-world.yaml
+
+
       
       #./apply__core.sh
       - name: cleanup_ssh
