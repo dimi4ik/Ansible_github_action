@@ -1,4 +1,4 @@
-name: apply__core_Actions
+name: apply__Git_Actions@v1.0
 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -36,7 +36,7 @@ jobs:
         run: |
           echo -n ${{ secrets.envfile }} > .env && . ./.env
           export vms_already_alive=${{ github.event.inputs.skip-wait }}
-          ./apply__core.sh
+      #./apply__core.sh
       - name: cleanup_ssh
         if: always()
         run: rm -rf ./.github/.ssh
