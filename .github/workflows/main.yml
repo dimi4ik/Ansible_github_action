@@ -10,10 +10,10 @@ on:
         description: 'Skip 5 minutes wait for VMs, because VMs already provisioned'
         default: false
 
-env:
-  Application_Name  :   "Bier_App"
-  Package_Name      :   "Bier_App_Version-${{ github.sha }}"
-  TF_VAR_ssh_private_key_pem: ${{ secrets.TF_VAR_ssh_private_key_pem }}
+#env:
+#  Application_Name  :   "Bier_App"
+#  Package_Name      :   "Bier_App_Version-${{ github.sha }}"
+#  TF_VAR_ssh_private_key_pem: ${{ secrets.TF_VAR_ssh_private_key_pem }}
 
 
 
@@ -42,10 +42,10 @@ jobs:
           echo -n ${{ secrets.envfile }} > .env && . ./.env
           export vms_already_alive=${{ github.event.inputs.skip-wait }}
       
-      - name: Print Deploment Package
-        run:  |
-              echo "Deploment Package name und Version ${{ env.Package_Name  }}"
-              echo "Applikation name: ${{ env.Application_Name }}"
+      #- name: Print Deploment Package
+      #  run:  |
+      #        echo "Deploment Package name und Version ${{ env.Package_Name  }}"
+      #        echo "Applikation name: ${{ env.Application_Name }}"
 
 
       - name: write inventory to file
