@@ -48,10 +48,10 @@ jobs:
       #    github_token: ${{ secrets.GITHUB_TOKEN }}
       #    default_bump: minor
 
-      - name: Create a GitHub release
-        uses: ncipollo/release-action@v1
-        with:
-          tag: ${{ steps.tag_version.outputs.new_tag }}
-          name: Release ${{ steps.tag_version.outputs.new_tag }}
-          artifacts: "output/rdp/*.rdp"
-          bodyFile: "output/README.md"
+      # - name: Create a GitHub release
+      #  uses: ncipollo/release-action@v1
+      #  with:
+      #    tag: ${{ steps.tag_version.outputs.new_tag }}
+      #    name: Release ${{ steps.tag_version.outputs.new_tag }}
+      #    artifacts: "output/rdp/*.rdp"
+      #    bodyFile: "output/README.md"
