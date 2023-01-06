@@ -1,10 +1,5 @@
 name: apply__Git_Actions@v1.0
 
-env:
-  Application_Name  :   "Bier_App"
-  Package_Name      :   "Bier_App_Version-${{ github.sha }}"
-  
-
 
 on:
   # Allows you to run this workflow manually from the Actions tab
@@ -16,7 +11,11 @@ on:
         default: false
 
 env:
+  Application_Name  :   "Bier_App"
+  Package_Name      :   "Bier_App_Version-${{ github.sha }}"
   TF_VAR_ssh_private_key_pem: ${{ secrets.TF_VAR_ssh_private_key_pem }}
+
+
 
 jobs:
   build_job:
