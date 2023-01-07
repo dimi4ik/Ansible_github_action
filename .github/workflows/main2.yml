@@ -24,8 +24,7 @@ jobs:
         
       - name: nur ein Test Nummer 2
         run:  |
-              echo "Meesages1"
-              "Applikation name:" 
+              echo Meesages1
 
               
   
