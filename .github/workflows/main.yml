@@ -37,16 +37,26 @@ jobs:
           packer --version
           terraform --version
           az --version
-      - name: apply__core
-        id: apply__core
-        run: |
-          echo -n ${{ secrets.envfile }} > .env && . ./.env
-          export vms_already_alive=${{ github.event.inputs.skip-wait }}
+
+      #- name: apply__core
+      #  id: apply__core
+      #  run: |
+      #    echo -n ${{ secrets.envfile }} > .env && . ./.env
+      #    export vms_already_alive=${{ github.event.inputs.skip-wait }}
       
       #- name: Print Deploment Package
       #  run:  |
       #        echo "Deploment Package name und Version ${{ env.Package_Name  }}"
       #        echo "Applikation name: ${{ env.Application_Name }}"
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      - name: Run ansible-lint
+        # replace `main` with any valid ref, or tags like `v6`
+        uses: ansible-community/ansible-lint-action@v6.0.2
+        with:
+          args: "ansible" # my ansible files in a folder
+
 
 
       - name: write inventory to file
