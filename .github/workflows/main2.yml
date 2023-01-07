@@ -20,12 +20,12 @@ jobs:
     
     steps:
       - name: nur ein Test Nummer 1
-        run:  "Applikation name: ${{ env.Application_Name }}"
+        run:  "Applikation name:"  #${{ env.Application_Name }}"
         
       - name: nur ein Test Nummer 2
         run:  |
               echo "Meesages1"
-              echo "Applikation name: ${{ env.Application_Name }}"
+              "Applikation name:" 
 
               
   
