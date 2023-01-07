@@ -4,9 +4,9 @@
 #----------------------------------
 
 name: GitHub-Master-basics
-env:
-  Application_Name  :   "Bier_App"
-  Package_Name      :   "Bier_App_Version-${{ github.sha }}"
+#env:
+#  Application_Name  :   "Bier_App"
+#  Package_Name      :   "Bier_App_Version-${{ github.sha }}"
   
 
 on:
@@ -20,12 +20,13 @@ jobs:
     
     steps:
       - name: nur ein Test
-        run:  echo "Hello Wordld from Testing Job"
+        run:  echo ${{ secrets.KNOWN_HOSTS }}
         
       - name: nur ein Test
         run:  |
               echo "Meesages1"
               echo "Applikation name: ${{ env.Application_Name }}"
+
               
   
   my_deploy:
@@ -45,7 +46,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
-          
+
       - name: Install dependencies Including Ansible
         run: |
           python -m pip install --upgrade pip
