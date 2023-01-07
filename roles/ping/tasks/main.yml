@@ -1,0 +1,24 @@
+---
+- name: pingggggggg
+  win_ping:
+
+#- name: Debug
+#  debug:
+#    msg: "{{ user_password }}"
+#  loop: "{{ credentials | dict2items }}"
+
+  #- {Username: "svcDirector" ,description: "Useraccount was created with automation" , upn: svcDirector@m015.abxcloud.ch, firstname: "Charly" ,surname: "White" ,email: "svcDirector@m015.abxcloud.ch" ,oupath: "OU=ServiceUsers,OU=Abraxas,OU=_Management,DC=m015,DC=abxcloud,DC=ch" ,groups: GG_RG-NS-ICA}
+    #- {Username: "svcLDAPS", description: "Useraccount was created with automation", upn: svcLDAPS@m015.abxcloud.ch, firstname: "Serivice Users",surname: "bloom",email: "svcLDAPS@m015.abxcloud.ch" ,oupath: "OU=ServiceUsers,OU=Abraxas,OU=_Management,DC=m015,DC=abxcloud,DC=ch" ,groups: GG_RG-NS-Admin}
+     # - {Username: "svcSQLUser",description: "Useraccount was created with automation",firstname: "Serivice Users",surname: "Mason",email: "svcSQLUser@m015.abxcloud.ch" ,oupath: "OU=ServiceUsers,OU=Abraxas,OU=_Management,DC=m015,DC=abxcloud,DC=ch" ,groups: GG_RG-NS-Admin}
+     # - {Username: "JoinAccount" ,description: "Useraccount was created with automation" ,firstname: "Serivice Users" ,surname: "Anderson" ,email: "JoinAccount@m015.abxcloud.ch" ,oupath: "OU=ServiceUsers,OU=Abraxas,OU=_Management,DC=m015,DC=abxcloud,DC=ch" ,groups: GG_RG-NS-Admin}
+     #- {Username: "BuildAccount" ,description: "Useraccount was created with automation" ,firstname: "Serivice Users" ,surname: "Watson" ,email: "BuildAccount@m015.abxcloud.ch" ,oupath: "OU=ServiceUsers,OU=Abraxas,OU=_Management,DC=m015,DC=abxcloud,DC=ch"  ,groups: GG_RG-NS-Admin}
+    #- {Username: "Billinger Fabian Admin" ,description: "Useraccount was created with automation" , upn: exfbiad@m015.abxcloud.ch , firstname: "Fabian" ,surname: "Billinger" ,email: "EXFBI@m015.abxcloud.ch" ,oupath: "OU=AdminUsers,OU=Abraxas,OU=_Management,DC=m015,DC=abxcloud,DC=ch" ,groups: GG_RG-NS-Admin, GG-RDP-APC015060001}
+     #- {Username: "Billinger  Fabian Test" ,description: "Useraccount für Citrix Tests" ,firstname: "Fabian" ,surname: "BillingerTest" ,email: "EXFBIT@m015.abxcloud.ch" ,oupath: "OU=ServiceUsers,OU=Abraxas,OU=_Management,DC=m015,DC=abxcloud,DC=ch"  ,groups: GG_RG-NS-Admin}
+
+     #- {Username: "axdlead" ,description: "Useraccount was created with automation" ,firstname: "dima" ,surname: "lejkin" ,email: "axdle@m015.abxcloud.ch" ,oupath: "OU=ServiceUsers,OU=Abraxas,OU=_Management,DC=m015,DC=abxcloud,DC=ch"  ,groups: GG_RG-NS-Admin}
+     #- {Username: "axdleT ,description: "Useraccount für Citrix Tests" ,firstname: "dima_Test" ,surname: "lejkin" ,email: "axdlet@m015.abxcloud.ch" ,oupath: "OU=AdminUsers,OU=Abraxas,OU=_Management,DC=m015,DC=abxcloud,DC=ch"  ,groups: GG_RG-NS-Admin}
+     
+     
+#      vars:
+#       ansible_user: administrator
+#       ansible_ssh_pass: "{{ item.value }}"
