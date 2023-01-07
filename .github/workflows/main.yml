@@ -66,7 +66,7 @@ jobs:
           if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
 
       - name: run playbook
-        run:  ansible-playbook main.yml --vault-id dev@.pass --tags ping
+        run:  ansible-playbook main.yml --tags ping
         #ansible-playbook -i inventory hello-world.yaml
           
       
