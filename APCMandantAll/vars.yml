@@ -1,0 +1,143 @@
+#[APCMandantVars:vars]
+
+resource_group:                         RG_392312
+#################################################
+#             APC  Vars                         #
+#################################################
+
+
+#apcMandant:                           000
+#apcKunde:                             Abraxas Citrix apc000
+#domain_name:                          m{apcMandant}.abxcloud.ch
+#domain_name:                          m000.abxcloud.ch
+#domain_admin:                         m{apcMandant}\administrator
+domain_admin:                          m000\azureuser
+
+##############################################
+#             DomainController                  #
+#################################################
+
+domain_name:                           m000.abxcloud.ch
+domain_DNSIP:                          10.0.1.6
+domain_netbios_name:		       m000	
+
+
+#################################################
+#             winRM Connection                  #
+#################################################
+
+ansible_connection:                   "winrm"
+ansible_port:                          5986
+ansible_winrm_scheme:                 "https"
+ansible_winrm_server_cert_validation: "ignore"
+ansible_winrm_transport:              "credssp"
+#ansible_winrm_transport:              "ntlm"
+ansible_user:                          m000\azureuser
+ansible_become_user:                   azureuser
+  
+
+
+
+#################################################
+#             storefront  Vars                 #
+#################################################
+FarmServers:                           "apc000060001.m000.abxcloud.ch"
+StoreVirtualPath:                      /Citrix/Store
+TransportType:                         HTTPS
+GatewaySTAUrls:                        "https://portal.m000.abxcloud.ch"
+GatewayName:                           NSG1
+#Storefront URL
+HostbaseUrl:                           https://storefront.m000.abxcloud.ch
+#Netscaler Gateway URL
+GatewayUrl:                            https://portal.m000.abxcloud.ch
+SSLCert:                               storefront.pfx
+
+
+
+#################################################
+#             createsite  Vars                  #
+#################################################
+
+# The name of your XenDesktop site. For example: "MySite".
+SiteName:                              m000_ZH
+# The name of your SQL server or SQL server instance (e.g. "SQLServer1.mycompany.com" or "SQLCTX01.mycompany.com\InStance1").
+DatabaseServer:                        apc000020001
+# The SQL port number (1433 by default)
+DatabaseServerPort: 1433
+# The name for the site database. For example: "CTX_Site_DB".
+DatabaseName_Site:                     m000_ZH_CTX_Site
+# The name for the logging database. For example: "CTX_Logging_DB".
+DatabaseName_Logging:                  m000_ZH_CTX_Logging
+# The name for the monitoring database. For example: "CTX_Monitoring_DB".
+DatabaseName_Monitoring:               m000_ZH_CTX_Monitoring_
+# The port number for the initial contact, for example 27000 (this is the default value)
+LicenseServerPort:                     27000
+# The licensing model. Possible values are UserDevice and Concurrent.
+LicensingModel:                        UserDevice
+# The Licensing Server
+LicensingServer:                       APC000060002
+# The product code. Possible values are XDT (for XenDesktop) or MPS (for the XenDesktop 7.x App Edition).                         
+ProductCode:                           XDT
+#The product edition. Possible values are STD (Standard), ENT (Enterprise) or PLT (Platinum).                                     
+ProductEdition:                        PLT
+# The name of the Active Directory user or group, for example "MyDomain\CTXAdmins".
+AdminGroup:                            $env:m000\GG-SG-CTX-Engineering
+# The role to assign to the new XenDesktop administrator. The following built-in roles are available
+Role:                                  Full Administrator
+# The scope (the objects) to which the permissions (defined in the role) apply                      
+Scope:                                 Alle
+# The number of days you want to monitoring data to be saved in the database, for example 365 days.                                                    
+GroomingDays: 365 
+
+#################################################
+#             DDCs  Vars                        #
+#################################################
+Ansible_remote_tmp:                    'C:\Windows\Temp'
+#domain_DNSIP:                          10.72.87.197
+#citrix_path:                          \\m000.abxcloud.ch\daten\app\2203_CU1
+citrix_path:                           \\m000.abxcloud.ch\daten\install\2209
+app_path:                              \\m000.abxcloud.ch\daten\app\2203_CU1\Abraxas_CreateAdminFolder-002_1.0_x86_de_APC01\Package\
+become:                                yes
+become_method:                         runas
+become_flag:                           logon_type=new_credentials 
+logon_flags:                           netcredentials_only
+#sql_path:                             \\m000.abxcloud.ch\daten\app\sql
+sql_path:                              \\m000\daten\install\sql
+sql_svc_account:                        m000\svcM000sql
+sql_svc_password:                      "{{ sql_svc_password_password }}"
+#SQL Admins
+sql_admins:                            m000\GG-RG-RES-SQL
+#sql_admins:                           m000\sqladmins
+#Apply Windows Updates
+apply_win_updates:                     true
+
+
+#Functional Level
+cvad_funclevel:                        L7_30 #2106 (newest)
+
+#Multi Session
+cvad_machinecatalog:                   Windows Stand Alone
+cvad_deliverygroup:                    Windows Lab
+cvad_desktop:                          Windows Lab Stand Alone
+vdahostname:                           $env:computername.$env:userdnsdomain #ctx-viab-01.constoso.local
+
+#Single Session
+cvad_singlemc:                         DesktopOS-MC
+cvad_singledg:                         DesktopOS-DG
+cvad_singledesktop:                    Desktop
+cvad_singlevda:                        m000\apc000060002  #contoso\Computer1
+cvad_singleusername:                   axdlead #bob.smith
+
+#vCenter
+cvad_vcenterurl:                       https://vcenter.m000.abxcloud.ch #https://vcenter.domain.local
+cvad_vcenteruser:                      m000.abxcloud.ch\administrator #contoso\adminbob
+cvad_vcenterpass:                      
+
+#################################################
+#             Cloud  Vars                       #
+#################################################
+
+citrix_org_id:                         dcint83426b6
+citrix_client_id:                      5593c633-149d-41e4-a7b0-eac3cf007a40
+prefix:				                         apc
+environment_short:		                 000

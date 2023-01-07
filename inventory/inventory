@@ -1,0 +1,60 @@
+#define childgroups for APCapc000
+[local]
+localhost
+
+[APCDomainControllers]
+apc000010001  ansible_host=10.0.1.6
+#apc000010002  ansible_host=10.0.1.7
+
+
+[APCDomainControllersMater]
+apc000010001  ansible_host=10.0.1.6
+
+
+[APCsql]
+apc000020001  ansible_host=10.0.1.8
+
+
+[APCDeliverControllers]
+apc000060001  ansible_host=10.0.1.9
+apc000060002  ansible_host=10.0.1.10
+apc000060005  ansible_host=10.0.1.15
+
+[APCCloudConnector]
+apc000060003  ansible_host=10.0.1.12
+apc000060004  ansible_host=10.0.1.13
+
+
+
+[APCDomainControllersMater_master]
+apc000060001  ansible_host=10.0.1.9
+
+
+[APCManagementServer]
+apc000040001  ansible_host=10.0.1.5
+
+
+
+[APCWorker]
+apc000050001   ansible_host=10.0.1.11
+apc000050002   ansible_host=10.0.1.14
+apc000050015   ansible_host=10.72.87.203
+apc000050003   ansible_host=10.72.87.204
+apc000050004   ansible_host=10.72.87.205
+apc000050005   ansible_host=10.72.87.206	
+
+
+[APCMaster]
+apc000050001   ansible_host=10.0.1.11
+
+[APCHyperV]
+mgtphyp07  ansible_host=10.73.27.66
+
+
+[APCMandantAll:children]
+APCDomainControllers
+APCDeliverControllers
+APCManagementServer
+APCWorker
+APCsql
+APCCloudConnector

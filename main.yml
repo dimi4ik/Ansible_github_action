@@ -1,0 +1,85 @@
+##ansible-playbook playbook.yml --tags "storefront, storefront-init" --extra-vars---
+- hosts: apc000060005
+  gather_facts: false
+  roles:
+    - role: ping
+      tags: ping
+
+    - role: ads
+      tags: ads
+    
+    - role: OUs
+      tags: OUs
+
+
+    - role: ca
+      tags: ca
+    
+
+    - role: addadUser
+      tags: addadUser
+
+    - role: dfs
+      tags: dfs
+
+
+    - role: DomJoin
+      tags: DomJoin
+
+
+    - role: ddc 
+      tags: ddc 
+
+    - role: director
+      tags: director
+
+    - role: createsite
+      tags: createsite
+
+    - role: site-hydrate
+      tags: site-hydrate
+
+    - role: storefront
+      tags: storefront
+
+    - role: storefront-init
+      tags: storefront-init
+
+    - role: sqlservermanagementstudio
+      tags: sqlservermanagementstudio
+
+    - role: license
+      tags: license
+
+
+      
+    #- role: prereqs
+    #  tags: prereqs
+
+    #- role: windowsupdates
+    #  tags: windowsupdates
+
+    
+    - role: SSLCert
+      tags: SSLCert
+
+    - role: vda
+      tags: vda
+
+#    - role: 
+#      tags: 
+
+#    - role: license
+#      tags: license
+
+
+
+    - role: citrix-cloud-connector
+      tags: citrix-cloud-connector
+
+#- name: Citrix Cloud Connector
+ # hosts: APCCloudConnector
+#  serial: 1
+  #roles:
+  #- DomJoin
+  ##- citrix-cloud-connect
