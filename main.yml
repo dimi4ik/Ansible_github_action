@@ -1,5 +1,5 @@
 ##ansible-playbook playbook.yml --tags "storefront, storefront-init" --extra-vars---
-- hosts: apc000060005
+- hosts: APCMandantAll
   gather_facts: false
   roles:
     - role: ping

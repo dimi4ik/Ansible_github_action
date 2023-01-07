@@ -66,8 +66,9 @@ jobs:
           if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
 
       - name: run playbook
-        run: |
-          ansible-playbook -i inventory hello-world.yaml
+        run:  ansible-playbook main.yml --vault-id dev@.pass --tags ping
+        #ansible-playbook -i inventory hello-world.yaml
+          
       
       #./apply__core.sh
       - name: cleanup_ssh

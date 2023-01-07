@@ -4,13 +4,6 @@ resource_group:                         RG_392312
 #################################################
 #             APC  Vars                         #
 #################################################
-
-
-#apcMandant:                           000
-#apcKunde:                             Abraxas Citrix apc000
-#domain_name:                          m{apcMandant}.abxcloud.ch
-#domain_name:                          m000.abxcloud.ch
-#domain_admin:                         m{apcMandant}\administrator
 domain_admin:                          m000\azureuser
 
 ##############################################
@@ -20,7 +13,6 @@ domain_admin:                          m000\azureuser
 domain_name:                           m000.abxcloud.ch
 domain_DNSIP:                          10.0.1.6
 domain_netbios_name:		       m000	
-
 
 #################################################
 #             winRM Connection                  #
@@ -34,13 +26,11 @@ ansible_winrm_transport:              "credssp"
 #ansible_winrm_transport:              "ntlm"
 ansible_user:                          m000\azureuser
 ansible_become_user:                   azureuser
-  
-
-
 
 #################################################
 #             storefront  Vars                 #
 #################################################
+
 FarmServers:                           "apc000060001.m000.abxcloud.ch"
 StoreVirtualPath:                      /Citrix/Store
 TransportType:                         HTTPS
@@ -92,23 +82,18 @@ GroomingDays: 365
 #################################################
 #             DDCs  Vars                        #
 #################################################
+
 Ansible_remote_tmp:                    'C:\Windows\Temp'
-#domain_DNSIP:                          10.72.87.197
-#citrix_path:                          \\m000.abxcloud.ch\daten\app\2203_CU1
 citrix_path:                           \\m000.abxcloud.ch\daten\install\2209
 app_path:                              \\m000.abxcloud.ch\daten\app\2203_CU1\Abraxas_CreateAdminFolder-002_1.0_x86_de_APC01\Package\
 become:                                yes
 become_method:                         runas
 become_flag:                           logon_type=new_credentials 
 logon_flags:                           netcredentials_only
-#sql_path:                             \\m000.abxcloud.ch\daten\app\sql
 sql_path:                              \\m000\daten\install\sql
 sql_svc_account:                        m000\svcM000sql
 sql_svc_password:                      "{{ sql_svc_password_password }}"
-#SQL Admins
 sql_admins:                            m000\GG-RG-RES-SQL
-#sql_admins:                           m000\sqladmins
-#Apply Windows Updates
 apply_win_updates:                     true
 
 
@@ -127,17 +112,3 @@ cvad_singledg:                         DesktopOS-DG
 cvad_singledesktop:                    Desktop
 cvad_singlevda:                        m000\apc000060002  #contoso\Computer1
 cvad_singleusername:                   axdlead #bob.smith
-
-#vCenter
-cvad_vcenterurl:                       https://vcenter.m000.abxcloud.ch #https://vcenter.domain.local
-cvad_vcenteruser:                      m000.abxcloud.ch\administrator #contoso\adminbob
-cvad_vcenterpass:                      
-
-#################################################
-#             Cloud  Vars                       #
-#################################################
-
-citrix_org_id:                         dcint83426b6
-citrix_client_id:                      5593c633-149d-41e4-a7b0-eac3cf007a40
-prefix:				                         apc
-environment_short:		                 000
