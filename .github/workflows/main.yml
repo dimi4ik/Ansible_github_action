@@ -1,5 +1,5 @@
 
-name: apply__Git_Actions@v1.0
+name: apply_Git_Actions@v1.0
 
 
 on:
@@ -84,17 +84,17 @@ jobs:
         if: always()
         run: rm -rf ./.github/.ssh
 
-      #- name: Bump version and push tag
-      #  id: tag_version
-      #  uses: mathieudutour/github-tag-action@v6.1
-      #  with:
-      #    github_token: ${{ secrets.GITHUB_TOKEN }}
-      #    default_bump: minor
+      - name: Bump version and push tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          default_bump: minor
 
-      # - name: Create a GitHub release
-      #  uses: ncipollo/release-action@v1
-      #  with:
-      #    tag: ${{ steps.tag_version.outputs.new_tag }}
-      #    name: Release ${{ steps.tag_version.outputs.new_tag }}
-      #    artifacts: "output/rdp/*.rdp"
-      #    bodyFile: "output/README.md"
+      - name: Create a GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.tag_version.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          artifacts: "output/rdp/*.rdp"
+          bodyFile: "output/README.md"
