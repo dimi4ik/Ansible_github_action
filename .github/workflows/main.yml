@@ -75,7 +75,7 @@ jobs:
 
       - name: run playbook
         run: |
-          ansible-playbook -i inventory ansible/hello-world.yaml
+          ansible-playbook -i inventory hello-world.yaml
 
 
       

@@ -10,9 +10,19 @@ name: GitHub-Master-basics
   
 
 on:
- push:
-   branches: 
-     - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      skip-wait:
+        type: boolean
+        description: 'Skip 5 minutes wait for VMs, because VMs already provisioned'
+        default: false
+
+
+ #push:
+ #  branches: 
+ #    - main
    
 jobs:
   my_testing:
