@@ -1,3 +1,4 @@
+
 name: apply__Git_Actions@v1.0
 
 
@@ -18,13 +19,12 @@ on:
 
 
 jobs:
-
   build_job:
     name: build_job
     runs-on: ubuntu-latest
 
     container:
-     image: andif888/docker-pataz:v0.9.9
+      image: andif888/docker-pataz:v0.9.9
 
     steps:
 
@@ -55,7 +55,7 @@ jobs:
         run: 'echo "$INVENTORY" > inventory'
 
       - name: Install SSH key
-        uses: c
+        uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_KEY }}
           name: id_rsa # optional
