@@ -78,7 +78,7 @@ jobs:
           if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
 
       - name: run playbook
-        run: |
-              ansible-playbook hello-world.yaml
+        run: ansible -m ping localhost
+        #ansible-playbook hello-world.yaml
 # ansible-playbook -i inventory hello-world.yaml
   
