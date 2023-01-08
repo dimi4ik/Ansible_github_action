@@ -12,12 +12,12 @@ name: GitHub-Master-basics
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-    inputs:
-      skip-wait:
-        type: boolean
-        description: 'Skip 5 minutes wait for VMs, because VMs already provisioned'
-        default: false
-
+ #   inputs:
+ #     skip-wait:
+ #       type: boolean
+ #       description: 'Skip 5 minutes wait for VMs, because VMs already provisioned'
+ #       default: false
+#
 
  #push:
  #  branches: 
@@ -79,5 +79,6 @@ jobs:
 
       - name: run playbook
         run: |
-               ansible-playbook -i inventory hello-world.yaml
+              ansible-playbook hello-world.yaml
+# ansible-playbook -i inventory hello-world.yaml
   
