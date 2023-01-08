@@ -23,4 +23,4 @@ jobs:
           kurs/ansible/inventory.yml
           kurs/ansible/playbook.yml
 
-        #args: "-c ansible/.ansible-lint"
+        args: "-c kurs/ansible/.ansible-lint"
