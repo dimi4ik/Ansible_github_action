@@ -63,10 +63,10 @@ jobs:
 
 
 
-      - name: write inventory to file
-        env:
-          INVENTORY: ${{ secrets.INVENTORY }}
-        run: 'echo "$INVENTORY" > inventory'
+      #- name: write inventory to file
+      #  env:
+      #    INVENTORY: ${{ secrets.INVENTORY }}
+      #  run: 'echo "$INVENTORY" > inventory'
 
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
