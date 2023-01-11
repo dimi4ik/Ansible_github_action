@@ -64,14 +64,12 @@ jobs:
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
           # config: ${{ secrets.CONFIG }} # ssh_config; optional
           if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
+          parol: ${{ secrets.ANP }}
 
       - name: run playbook
         run:  ansible apc000010001 -m ansible.builtin.setup --extra-vars "ansible_user=m000\\\azureuser ansible_connection=winrm ansible_port=5986 ansible_winrm_scheme=https ansible_winrm_server_cert_validation=ignore ansible_winrm_transport=credssp ansible_password=${{ secrets.ANP }}"
         #ansible-playbook main.yml --tags ping --extra-vars "ansible_user=azureuser" -vvv
         #ansible-playbook -i inventory hello-world.yaml
-        with:
-          parol: ${{ secrets.ANP }}
-
           
       - name: run playbook-addHock setup
         run:  ansible apc000010001 -m ansible.builtin.setup "ansible_user=dimas" -vvv 
