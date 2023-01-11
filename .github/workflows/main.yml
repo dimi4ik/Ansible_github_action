@@ -66,7 +66,8 @@ jobs:
           if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
 
       - name: run playbook
-        run:  ansible-playbook main.yml --tags ping  -vvv
+        run:  ansible apc000010001 -m ansible.builtin.setup --extra-vars "ansible_user=m000\\\azureuser ansible_connection=winrm ansible_port=5986 ansible_winrm_scheme=https ansible_winrm_server_cert_validation=ignore ansible_winrm_transport=credssp"
+        #ansible-playbook main.yml --tags ping --extra-vars "ansible_user=azureuser" -vvv
         #ansible-playbook -i inventory hello-world.yaml
           
       - name: run playbook-addHock setup
