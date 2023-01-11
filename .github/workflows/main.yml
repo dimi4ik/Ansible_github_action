@@ -66,10 +66,18 @@ jobs:
           if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
 
       - name: run playbook
-        run:  ansible-playbook main.yml --tags ping
+        run:  ansible-playbook main.yml --tags ping  -vvv
         #ansible-playbook -i inventory hello-world.yaml
           
+      - name: run playbook-addHock setup
+        run:  ansible apc000010001 -m ansible.builtin.setup "ansible_user=dimas" -vvv 
+
+          
+      - name: run playbook-addHock Ping
+        run:  ansible -m win_ping apc000010001 -vvvv
+  
       
+      #./apply__core.sh
       #./apply__core.sh
       - name: cleanup_ssh
         if: always()
