@@ -1,0 +1,15 @@
+---
+- name: Star Azure VM
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+
+  - name: PowerOn APC000000001
+    azure.azcollection.azure_rm_virtualmachine:
+      resource_group: "{{ resource_group }}"
+      name: "{{ vmaname }}"
+      started: true
+    register: vm_start
+    vars:
+      vmaname: APC000000001
